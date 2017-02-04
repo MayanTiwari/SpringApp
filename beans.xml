@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+		default-init-method="init">
+
+	<context:annotation-config></context:annotation-config>
+
+	<bean id="helloWorld" class="demo.helloworld.HelloWorld" autowire="byName">
+		<constructor-arg ref="car"></constructor-arg>
+		<property name="person" ref="person"></property>
+	</bean>
+
+	<bean id="person" class="demo.helloworld.Person">
+		<property name="firstName" value="Mayan">
+		</property>
+		<property name="lastName" value="Tiwari">
+		</property>
+	</bean>
+	<bean id="car" class="demo.helloworld.Car">
+		<property name="name" value="Figo"></property>
+	</bean>
+	<bean id="hostel" class="demo.helloworld.Hostel">
+		<property name="hostelName" value="MandM"></property>
+	</bean>
+	<bean id="company" class="demo.helloworld.Company">
+		<property name="companyName" value="ClassMate"></property>
+	</bean>
+	<bean id="clientService" class="demo.helloworld.ClientService" factory-method="createInstance">
+	</bean>
+	
+	<!-- Method injection --> 
+	<bean id="pizzaShop" class="demo.helloworld.PizzaShop">
+        <lookup-method name="makePizza" bean="pizza"/>
+        <lookup-method name="makeVeggiePizza" bean="veggiePizza"/>
+    </bean>
+    <bean id="pizza" class="demo.helloworld.Pizza" scope="prototype"/>
+    
+    <bean id="veggiePizza" class="demo.helloworld.Pizza" scope="prototype">
+        <property name="isVeg" value="true"/>
+    </bean>
+    
+    <bean id="customBean" class="demo.customBeans.CustomBean" init-method="init" destroy-method="cleanUp" scope="singleton">
+    </bean>
+	
+	<!-- Bean post processor  -->
+	<bean class="demo.customBeans.BPostProcesssor" ></bean>
+	<bean class="demo.customBeans.BBPostProcessor"></bean>
+
+</beans>

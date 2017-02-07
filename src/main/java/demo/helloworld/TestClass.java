@@ -22,10 +22,10 @@ public class TestClass {
 		ob.sayHello();*/
 
 		//Initialize when you need it
-		CustomBean cb = con.getBean(CustomBean.class);
-		con.close();
-		//DataSource datas = con.getBean(DataSource.class);
-		//System.out.println(datas);
+		//CustomBean cb = con.getBean(CustomBean.class);
+		//con.close();
+		DataSource datas = con.getBean(DataSource.class);
+		System.out.println(datas);
 		/*PizzaShop pizzaShop = (PizzaShop) con.getBean("pizzaShop");
 		Pizza firstPizza = pizzaShop.makePizza();
 		System.out.println("First Pizza: " + firstPizza);

@@ -46,15 +46,20 @@
 		init-method="init" destroy-method="cleanUp" scope="singleton">
 	</bean>
 
-	<!-- <bean id="dataSource" class="demo.helloworld.DataSource">
+	<bean id="dataSource" class="demo.helloworld.DataSource">
 		<property name="dbuser" value="${dbuser}" ></property>
 		<property name="database" value="${database}" ></property>
 		<property name="dbpassword" value="${dbpassword}"></property>
-	</bean> -->
-
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<!-- <property name="dataSource" value="src/main/resources/Config.properties"/> -->
 	</bean>
+
+	<!-- <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="src/main/resources/Config.properties"/>
+	</bean> -->
+	
+	<bean class="demo.customBeans.DBPropertyConfigure">
+		<property name="location" value="src/main/resources/Config.properties"/>
+	</bean>
+	
 
 	<!-- Bean post processor -->
 	<bean class="demo.customBeans.BPostProcesssor"></bean>

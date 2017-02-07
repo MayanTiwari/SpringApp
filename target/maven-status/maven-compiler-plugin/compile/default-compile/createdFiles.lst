@@ -6,6 +6,7 @@ demo/helloworld/ClientService.class
 demo/helloworld/HelloWorld.class
 demo/customBeans/BBPostProcessor.class
 demo/helloworld/CommandManager.class
+demo/customBeans/DBPropertyConfigure.class
 demo/helloworld/Car.class
 demo/helloworld/Hostel.class
 demo/customBeans/CustomBean.class
